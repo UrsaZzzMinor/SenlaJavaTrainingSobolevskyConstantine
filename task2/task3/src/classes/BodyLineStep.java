@@ -3,12 +3,13 @@ package classes;
 import interfaces.ILineStep;
 import interfaces.IProductPart;
 
-public class LineStep implements ILineStep{
+public class BodyLineStep implements ILineStep{
+	TankBody body = new TankBody();
 	
 	private IProductPart part;
 	
-	public LineStep(IProductPart part){
-		this.part = part;
+	public BodyLineStep(){
+		this.part = body;
 	}
 
 	@Override
