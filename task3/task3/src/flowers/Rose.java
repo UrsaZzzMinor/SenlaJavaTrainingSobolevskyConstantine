@@ -5,6 +5,5 @@ public class Rose extends Flower{
 		setName("Rose");
 		setPrice(price);
 		setQuantity(quantity);
-		setTotal(getTotal() + price*quantity);
 	}
 }

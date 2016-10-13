@@ -5,6 +5,5 @@ public class Daisy extends Flower{
 		this.setName("Daisy");
 		this.setPrice(price);
 		this.setQuantity(quantity);
-		this.setTotal(getTotal() + price*quantity);
 	}
 }
