@@ -5,6 +5,5 @@ public class Tulip extends Flower{
 		setName("Tulip");
 		setPrice(price);
 		setQuantity(quantity);
-		setTotal(getTotal() + price*quantity);
 	}
 }
