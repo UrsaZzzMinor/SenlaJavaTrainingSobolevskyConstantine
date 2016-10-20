@@ -15,6 +15,7 @@ import com.senla.hoteldb.models.Room;
 public class GuestService {
 	public void showGuests(List<Guest> guests){
 		System.out.printf("%nHere's the information about guests:%n%n");
+		guests.sort(new GuestComporator("reversedate"));
 		for (Guest thing: guests){
 			StringBuilder sb = new StringBuilder();
 			sb.append("Room id = ");
@@ -35,10 +36,10 @@ public class GuestService {
 	
 	public List<Integer> totalCost(Guest guest, List<Room> rooms, String s){
 		List<Integer> cost = new ArrayList<Integer>();
-		Long diff = guest.getDepDate().getTime();
+		Long diff = guest.getArrivalDate().getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy,MM,dd");
 		try {
-			diff -= sdf.parse(s).getTime();
+			diff = sdf.parse(s).getTime() - diff;
 			diff/=(24*60*60*1000);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -76,19 +77,20 @@ public class GuestService {
 		}
 	}
 	
-	public void serviceInfo(Guest guest){
-		System.out.println("\nHere's the info about guest's services: ");
-		for (int i=0; i < guest.getServices().size(); i++){
-			System.out.printf(" Service = %s; ", guest.getServices().get(i));
-			System.out.printf("price = %d; ",guest.getPrices().get(i));
-			SimpleDateFormat sdf = new SimpleDateFormat("yyy,mm,dd");
-			try {
-				System.out.printf("date = %s.%n",sdf.format(sdf.parse(guest.getDates().get(i))));
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return ;
-	}
+//	public List<String> serviceInfo(Guest guest){
+//		List<String> services = new ArrayList<String>();
+//		System.out.println("\nHere's the info about guest's services: ");
+//		for (int i=0; i < guest.getServices().size(); i++){
+//			System.out.printf(" Service = %s; ", services.set(i));
+//			System.out.printf("price = %d; ",guest.getPrices().get(i));
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyy,mm,dd");
+//			try {
+//				System.out.printf("date = %s.%n",sdf.format(sdf.parse(guest.getDates().get(i))));
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		return ;
+//	}
 }

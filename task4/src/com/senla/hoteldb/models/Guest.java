@@ -16,9 +16,7 @@ public class Guest{
 	private Integer roomID;
 	private Date departureDate;
 	private Date arrivalDate;
-	private List<String> services = new ArrayList<String>();
-	private List<Integer> prices = new ArrayList<Integer>();
-	private List<String> dates = new ArrayList<String>();
+	private List<Service> services = new ArrayList<Service>(); 
 	
 	public String getName() {
 		return name;
@@ -66,20 +64,5 @@ public class Guest{
 			e.printStackTrace();
 		}
 	}
-	public List<String> getServices() {
-		return services;
-	}
-	
-	public List<Integer> getPrices() {
-		return prices;
-	}
-	
-	public List<String> getDates() {
-		return dates;
-	}
-	
-	
-
-	
 	
 }

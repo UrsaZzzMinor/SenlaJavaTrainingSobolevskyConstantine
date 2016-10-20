@@ -24,6 +24,8 @@ public class RoomComparator implements Comparator<Room> {
 			return o1.getNumStars().compareTo(o2.getNumStars());
 		} else if (s.equalsIgnoreCase("date")){
 			return o1.getDepDate().compareTo(o2.getDepDate());
+		}else if (s.equalsIgnoreCase("id")){
+			return o1.getRoomID().compareTo(o2.getRoomID());
 		} else return 0;
     }
 	

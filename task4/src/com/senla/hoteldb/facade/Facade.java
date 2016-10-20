@@ -8,14 +8,9 @@ import com.senla.hoteldb.models.Guest;
 import com.senla.hoteldb.models.Room;
 
 public class Facade {
-	private String[][] array;
-	public String[][] getArray() {
-		return array;
-	}
+	
 
-	public void setArray(String[][] array) {
-		this.array = array;
-	}
+	
 
 	public void settleIntoRoom(int index, Guest guest){
 		array[index][5] = guest.getName();
