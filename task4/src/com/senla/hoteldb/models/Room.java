@@ -3,7 +3,9 @@ package com.senla.hoteldb.models;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Room {
 	//private variables
@@ -13,10 +15,7 @@ public class Room {
 	private Integer numStars;
 	private Boolean busy;
 	private Date departureDate;
-	private String[] furniture = {"Bed","Wadrobe","Table","Carpet","Armchair"};
-	public String[] getFurniture() {
-		return furniture;
-	}
+	
 	
 	//getters & setters
 	public Integer getRoomID() {
