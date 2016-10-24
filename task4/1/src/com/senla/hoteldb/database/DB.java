@@ -1,9 +1,5 @@
 package com.senla.hoteldb.database;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.danco.training.TextFileWorker;
 
 public class DB {
@@ -19,4 +15,7 @@ public class DB {
 		return hotelDB;
 	}
 	
+	public void saveDB(String[] array) {
+		fileWorker.writeToFile(array);
+	}
 }

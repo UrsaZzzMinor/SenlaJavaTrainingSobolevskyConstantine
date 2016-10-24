@@ -17,6 +17,17 @@ public class Room {
 	private Date departureDate;
 	
 	
+	public Room(Integer roomID, Integer price, Integer capacity, Integer numStars, Boolean busy) {
+		super();
+		this.roomID = roomID;
+		this.price = price;
+		this.capacity = capacity;
+		this.numStars = numStars;
+		this.busy = busy;
+	}
+	public Room() {
+		super();
+	}
 	//getters & setters
 	public Integer getRoomID() {
 		return roomID;

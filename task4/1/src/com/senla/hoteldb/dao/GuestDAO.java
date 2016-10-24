@@ -3,7 +3,6 @@ package com.senla.hoteldb.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.senla.hoteldb.database.DB;
 import com.senla.hoteldb.models.Guest;
 
 public class GuestDAO{

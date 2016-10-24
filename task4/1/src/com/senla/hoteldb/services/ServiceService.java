@@ -1,27 +1,22 @@
 package com.senla.hoteldb.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.senla.hoteldb.models.Guest;
+import com.senla.hoteldb.comparator.ServiceComparator;
+import com.senla.hoteldb.models.Service;
 
 public class ServiceService {
-	public List<String> serviceInfo(Guest guest){
-		List<String> services = new ArrayList<String>();
-		System.out.println("\nHere's the info about guest's services: ");
-		for (int i=0; i < guest.getServices().size(); i++){
-			System.out.printf(" Service = %s; ", services.set(i));
-			System.out.printf("price = %d; ",guest.getPrices().get(i));
-			SimpleDateFormat sdf = new SimpleDateFormat("yyy,mm,dd");
-			try {
-				System.out.printf("date = %s.%n",sdf.format(sdf.parse(guest.getDates().get(i))));
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	public String showPrices(List<Service> services, String s){
+		System.out.println("\nHere're the prices of all possible at current moment services: \n");
+		StringBuilder sb = new StringBuilder();
+		services.sort(new ServiceComparator(s));
+		for (Service thing: services){
+			if (thing.getName().equalsIgnoreCase("null"))continue;
+			sb.append("\n Service name = ");
+			sb.append(thing.getName());
+			sb.append(" Price = ");
+			sb.append(thing.getPrice());
 		}
-		return ;
+		return sb.toString();
 	}
 }
