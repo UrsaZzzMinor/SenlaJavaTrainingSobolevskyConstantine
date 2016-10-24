@@ -7,10 +7,13 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import com.senla.hoteldb.comparator.GuestComporator;
+import com.senla.hoteldb.comparator.ServiceComparator;
+
 import java.util.List;
 
 import com.senla.hoteldb.models.Guest;
 import com.senla.hoteldb.models.Room;
+import com.senla.hoteldb.models.Service;
 
 public class GuestService {
 	public void showGuests(List<Guest> guests){
@@ -77,20 +80,29 @@ public class GuestService {
 		}
 	}
 	
-//	public List<String> serviceInfo(Guest guest){
-//		List<String> services = new ArrayList<String>();
-//		System.out.println("\nHere's the info about guest's services: ");
-//		for (int i=0; i < guest.getServices().size(); i++){
-//			System.out.printf(" Service = %s; ", services.set(i));
-//			System.out.printf("price = %d; ",guest.getPrices().get(i));
-//			SimpleDateFormat sdf = new SimpleDateFormat("yyy,mm,dd");
-//			try {
-//				System.out.printf("date = %s.%n",sdf.format(sdf.parse(guest.getDates().get(i))));
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		return ;
-//	}
+	public String serviceInfo(Guest guest){
+		System.out.printf("%nHere's the info about %s's %s services: %n", guest.getName(), guest.getSurName());
+		guest.getServices().sort(new ServiceComparator("price"));
+		StringBuilder sb = new StringBuilder();
+		for (int i=0; i<guest.getServices().size(); i++){
+			sb.append("\nServiceName = ");
+			sb.append(guest.getServices().get(i).getName());
+			sb.append(" ServicePrice = ");
+			sb.append(guest.getServices().get(i).getPrice());
+		}
+		return sb.toString();
+	}
+	
+	public String priceOfServices(List<Service> services, List<Room> rooms){
+		System.out.printf("%nHere's the prices of services and rooms: %n");
+		StringBuilder sb = new StringBuilder();
+		for (int i=0; i<services.size();i++){
+			sb.append("\nService name = ");
+			sb.append(services.get(i).getName());
+			sb.append(" Service Price = ");
+			sb.append(services.get(i).getPrice());
+		}
+		return sb.toString();
+		
+	}
 }

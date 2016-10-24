@@ -7,5 +7,9 @@ import com.senla.hoteldb.models.Service;
 
 public class ServiceDAO extends Service {
 	private List<Service> services = new ArrayList<Service>();
+
+	public List<Service> getServices() {
+		return services;
+	}
 	
 }

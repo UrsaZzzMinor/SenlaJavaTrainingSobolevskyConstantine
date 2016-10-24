@@ -7,6 +7,15 @@ public class Service {
 	private Integer price;
 	private Date date;
 	
+	public Service(String name, Integer price, Date date) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.date = date;
+	}
+	public Service() {
+		super();
+	}
 	public String getName() {
 		return name;
 	}

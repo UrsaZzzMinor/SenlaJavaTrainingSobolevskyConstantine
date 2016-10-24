@@ -2,10 +2,11 @@ package com.senla.hoteldb.converter;
 
 import java.util.List;
 
+import com.senla.hoteldb.comparator.RoomComparator;
 import com.senla.hoteldb.models.Room;
 
 public class ConvertToEmptyRoom {
-	public List<Room> convertToEmptyRoom(String[] list, List<Room> emptyRooms){
+	public List<Room> convertToEmptyRoom(String[] list, List<Room> emptyRooms, List<Room> rooms){
 		for (int i=0; i<list.length; i++){
 			Room room = new Room();
 			String[] info = list[i].split("-");
@@ -24,7 +25,20 @@ public class ConvertToEmptyRoom {
 					room.setDepDate(info[j]);
 				} 
 			}
-			if (!room.getBusy()) emptyRooms.add(room);
+			String s = new String();
+			if (!room.getBusy()) {
+				//emptyRooms.sort(new RoomComparator("id"));
+				for (Room thing: rooms){
+					if(thing.getRoomID().equals(room.getRoomID()) && (thing.getBusy())){
+						s = "continue";
+					}
+				}
+				if (s.equalsIgnoreCase("continue")){
+					continue;
+				}else {
+					emptyRooms.add(room);
+				}	
+			}
 		}
 		return emptyRooms;
 	}

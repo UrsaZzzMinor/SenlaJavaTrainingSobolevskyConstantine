@@ -18,12 +18,21 @@ public class Guest{
 	private Date arrivalDate;
 	private List<Service> services = new ArrayList<Service>(); 
 	
-	public String getName() {
-		return name;
+	public Guest(String name, String surName, Integer roomID, Date departureDate, Date arrivalDate) {
+		super();
+		this.name = name;
+		this.surName = surName;
+		this.roomID = roomID;
+		this.departureDate = departureDate;
+		this.arrivalDate = arrivalDate;
 	}
 	public Guest() {
 		super();
 	}
+	public String getName() {
+		return name;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -63,6 +72,10 @@ public class Guest{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public List<Service> getServices() {
+		// TODO Auto-generated method stub
+		return services;
 	}
 	
 }
